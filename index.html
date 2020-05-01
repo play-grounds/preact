@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <script id="data" type="module">
+      globalThis.rdf = `
+
+# some rdf
+<> a <#PersonalProfileDocument> .`
+    </script>
+
+    <script type="module">
+      // imports
+      import { h, Component, render } from 'https://unpkg.com/preact?module'
+      import yyyymmdd from 'https://unpkg.com/@util8/yyyymmdd?module'
+
+      //  app
+      const app = h('pre', null, 'Hello web on: ' + yyyymmdd() + rdf)
+
+      // render
+      render(app, document.body)
+    </script>
+  </body>
+</html>
