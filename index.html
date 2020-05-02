@@ -1,22 +1,74 @@
 <html>
+  <head>
+    <style>
+      body {
+        background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/preact-material-components@1.6.1/Button/style.css"
+    />
+  </head>
   <body>
     <script id="data" type="module">
-      globalThis.rdf = `
-
-# some rdf
-<> a <#PersonalProfileDocument> .`
+      globalThis.data = `<> rdf:type <#PersonalProfileDocument> .`
     </script>
 
     <script type="module">
       // imports
       import { h, Component, render } from 'https://unpkg.com/preact?module'
       import yyyymmdd from 'https://unpkg.com/@util8/yyyymmdd?module'
+      import { Button } from './web_modules/preact-material-components.js'
 
-      //  app
-      const app = h('pre', null, 'Hello web on: ' + yyyymmdd() + rdf)
+      const title = 'Hello web on: ' + yyyymmdd()
+      const sub = 'Render Data Island'
+      const terms = globalThis.data.split(' ')
 
-      // render
-      render(app, document.body)
+      /** Example classful component */
+      class App extends Component {
+        componentDidMount () {
+          this.setState({ message: sub })
+        }
+        render (props, state) {
+          return h(
+            'div',
+            { id: 'app' },
+            h(Header, { message: state.message }),
+            h(Main)
+          )
+        }
+      }
+
+      /** Components can just be pure functions */
+      const Header = props => {
+        return h(
+          'header',
+          null,
+          h('h1', null, title),
+          props.message && h('h2', null, props.message)
+        )
+      }
+
+      /** Instead of JSX, use: h(type, props, ...children) */
+      class Main extends Component {
+        render () {
+          const items = terms.map(item =>
+            h(
+              'Button',
+              {
+                id: item,
+                className: 'mdc-button mdc-button--raised'
+              },
+              '' + item
+            )
+          )
+          return h('main', null, h('ul', null, items))
+        }
+      }
+
+      render(h(App), document.body)
     </script>
   </body>
 </html>

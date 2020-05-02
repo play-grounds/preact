@@ -1,0 +1,25 @@
+{
+  "name": "preact-test",
+  "version": "1.0.0",
+  "description": "preact playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/play-grounds/preact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/play-grounds/preact/issues"
+  },
+  "homepage": "https://github.com/play-grounds/preact#readme",
+  "dependencies": {
+    "htm": "^3.0.4",
+    "preact": "^10.4.1",
+    "preact-material-components": "^1.6.1"
+  }
+}
