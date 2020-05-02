@@ -46,8 +46,11 @@
         return h(
           'header',
           null,
-          h('h2', null, title),
-          props.message && h(Button, null, props.message)
+          h('hr'),
+          h(Button, { dense: true }, title),
+          h('hr'),
+          props.message && h(Button, { disabled: true }, props.message),
+          h('hr')
         )
       }
 
@@ -65,7 +68,7 @@
               '' + item
             )
           )
-          return h('main', null, h('div', null, items))
+          return h('main', null, h('div', null, items), h('hr'))
         }
       }
 
