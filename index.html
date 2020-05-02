@@ -56,10 +56,10 @@
         render () {
           const items = terms.map(item =>
             h(
-              'Button',
+              Button,
               {
                 id: item,
-                className: 'mdc-button mdc-button--raised'
+                raised: true
               },
               '' + item
             )
