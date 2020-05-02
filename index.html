@@ -23,7 +23,7 @@
       import { Button } from './web_modules/preact-material-components.js'
 
       const title = 'Today: ' + yyyymmdd()
-      const sub = 'Rendering Data Island:'
+      const sub = 'Rendering Data Island'
       const terms = globalThis.data.split(' ')
 
       /** Example classful component */
@@ -59,7 +59,8 @@
               Button,
               {
                 id: item,
-                raised: true
+                raised: true,
+                style: { margin: '6px' }
               },
               '' + item
             )
